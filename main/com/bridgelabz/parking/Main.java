@@ -21,9 +21,18 @@ public class Main {
 		Vehicle car2=new Car("UP 32 7600","Black");
 		parkingLot.parkCar(car1);
 		parkingLot.parkCar(car2);
+		parkingLot.parkCar(car2);
+		parkingLot.parkCar(car2);
+		parkingLot.parkCar(car2);
+
 		
 		//<-------------USE CASE 2------------->
 		parkingLot.unparkCar(car1);
 		parkingLot.printOccupancy();
+
+		//<-------------USE CASE 3------------->
+		parkingLot.parkCar(car2);
+		parkingLot.parkCar(car2);
+		
 	}
 }
