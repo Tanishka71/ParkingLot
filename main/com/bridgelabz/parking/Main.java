@@ -15,6 +15,9 @@ public class Main {
 	public static void main(String []args) {
 		System.out.println("<-------------Welcome to parking lot----------------->");
 		ParkingLot parkingLot = new ParkingLot();
+//		ParkingLotObserver airportSecurity = new AirportSecurity();
+//
+//        parkingLot.addObserver(airportSecurity);
 		
 		//<-------------USE CASE 1------------->
 		Vehicle car1=new Car("UP 32 4500","White");
@@ -33,7 +36,17 @@ public class Main {
 		//<-------------USE CASE 3------------->
 		parkingLot.parkCar(car2);
 		parkingLot.parkCar(car2);
+		
+		//<-------------USE CASE 4------------->
 		parkingLot.notifyObservers();
+
+		//<-------------USE CASE 5------------->
+		parkingLot.unparkCar(car2);
+		parkingLot.unparkCar(car2);
+		parkingLot.unparkCar(car2);
+		parkingLot.unparkCar(car2);
+		parkingLot.notifyObservers();
+		
 		
 	}
 }

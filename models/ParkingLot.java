@@ -94,9 +94,9 @@ public class ParkingLot {
     public void notifyObservers() {
         if (isFull()) {
             System.out.println("Parking lot is full! Notifying security personnel.");
-            for (ParkingLotObserver observer : observers) {
-                observer.notifyFull();
-            }
+        }
+        else {
+            System.out.println("Space is available again! Notifying the parking lot owner.");
         }
     }
 
