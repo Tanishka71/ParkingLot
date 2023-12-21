@@ -19,15 +19,30 @@ public class ParkingLot {
     }
 
     /*
-	 * @desc:park the car at a particular spot
-	 * 
-	 * @params:Vehicle object
-	 * 
-	 * @return:none
-	 */
+   	 * @desc:park the car at a particular spot
+   	 * 
+   	 * @params:Vehicle object
+   	 * 
+   	 * @return:none
+   	 */
     public void parkCar(Vehicle car) {
             parkedCars.add(car);
             System.out.println("Car parked: " + car);
+    }
+    
+    /*
+   	 * @desc:unpark the car 
+   	 * 
+   	 * @params:Vehicle object
+   	 * 
+   	 * @return:none
+   	 */
+    public void unparkCar(Vehicle car) {
+        if (parkedCars.remove(car)) {
+            System.out.println("Car unparked: " + car);
+        } else {
+            System.out.println("Car not found in the parking lot.");
+        }
     }
 
     /*
