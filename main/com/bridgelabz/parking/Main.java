@@ -33,6 +33,7 @@ public class Main {
 		//<-------------USE CASE 3------------->
 		parkingLot.parkCar(car2);
 		parkingLot.parkCar(car2);
+		parkingLot.notifyObservers();
 		
 	}
 }
