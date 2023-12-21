@@ -2,5 +2,5 @@ package models;
 
 public enum VehicleSize {
 
-	 Motorcycle, Compact,Large 
+	 Motorcycle, Car,Bus 
 }
