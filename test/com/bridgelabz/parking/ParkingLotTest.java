@@ -4,9 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import models.Car;
+import models.ParkingAttendant;
 import models.ParkingLot;
 import models.Vehicle;
 
@@ -30,7 +29,7 @@ class ParkingLotTest {
 	@Test
 	void parkCarTest() {
 		parkingLot.parkCar(car);
-		assertEquals(parkingLot.parkedCars.size(),1,0);
+		assertEquals(ParkingAttendant.slots.size(),1,0);
 	}
 	
 	/*
@@ -43,7 +42,7 @@ class ParkingLotTest {
 	@Test
 	void unparkCarTest() {
 		parkingLot.unparkCar(car);
-		assertEquals(parkingLot.parkedCars.size(),0,0);
+		assertEquals(ParkingAttendant.slots.size(),0,0);
 	}
 	
 	/*
@@ -55,10 +54,6 @@ class ParkingLotTest {
 	 */
 	@Test
 	void ownerCheckWhenParkingIsFull() {
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
 		parkingLot.parkCar(car);
 		boolean check=parkingLot.isFull();
 		assertEquals(check,true);
@@ -74,10 +69,6 @@ class ParkingLotTest {
 	@Test
 	void notifySecurityPersonnelThatParkingIsFull() {
 		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
-		parkingLot.parkCar(car);
 		String check="Parking lot is full! Notifying security personnel.";
 		assertEquals(check,parkingLot.notifyObservers());
 	}
@@ -91,7 +82,22 @@ class ParkingLotTest {
 	 */
 	@Test
 	void notifyOwnerThatParkingHasSpaceAgain() {
+		parkingLot.unparkCar(car);
 		String check="Space is available again! Notifying the parking lot owner.";
 		assertEquals(check,parkingLot.notifyObservers());
+	}
+	
+	/*
+	 * @desc:to test parking attendant at a slot  functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void parkingAttendantIsGivingASlot() {
+		parkingLot.parkCar(car);
+		int slot=1;
+		assertEquals(slot,ParkingAttendant.slots.get(car.licensePlate),0);
 	}
 }

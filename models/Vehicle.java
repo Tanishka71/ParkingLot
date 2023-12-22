@@ -6,7 +6,7 @@ public abstract class Vehicle
 {
       protected ArrayList<ParkingLot> ParkingLots =
                            new ArrayList<ParkingLot>();
-      protected String licensePlate;
+      public String licensePlate;
       protected String color;
       protected VehicleSize size;
       /*

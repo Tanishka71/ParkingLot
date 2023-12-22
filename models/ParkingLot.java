@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    private static final int CAPACITY = 4;
-    private List<Vehicle> parkedCars;
-    private List<ParkingLotObserver> observers;
+    static final int CAPACITY = 1;
+    public List<Vehicle> parkedCars;
+    static int numberOfVehicle=0;
     
     /*
 	 * @desc:constructor for the class ParkingLot
@@ -27,7 +27,7 @@ public class ParkingLot {
    	 * @return:boolean
    	 */
     public boolean isFull() {
-        return parkedCars.size() >= CAPACITY;
+        return ParkingAttendant.slots.size() >= CAPACITY;
     }
 
     /*
@@ -39,8 +39,9 @@ public class ParkingLot {
    	 */
     public void parkCar(Vehicle car) {
         if (!isFull()) {
-            parkedCars.add(car);
-            System.out.println("Car parked: " + car);
+            numberOfVehicle++;
+            ParkingAttendant.allotSlotToTheCar(car,numberOfVehicle);
+
         } else {
             System.out.println("Parking lot is full. Cannot park car.");
         }
@@ -55,8 +56,8 @@ public class ParkingLot {
    	 * @return:none
    	 */
     public void unparkCar(Vehicle car) {
-        if (parkedCars.remove(car)) {
-            System.out.println("Car unparked: " + car);
+        if (ParkingAttendant.slots.size() != 0) {
+            ParkingAttendant.emptySlotForTheCar(car,numberOfVehicle);
         } else {
             System.out.println("Car not found in the parking lot.");
         }
@@ -70,18 +71,7 @@ public class ParkingLot {
 	 * @return:none
 	 */
     public void printOccupancy() {
-        System.out.println("Occupancy: " + parkedCars.size() + "/" + CAPACITY);
-    }
-    
-    /*
-     * @desc: add an observer to be notified when the parking lot is full
-     *
-     * @params: ParkingLotObserver object
-     *
-     * @return: none
-     */
-    public void addObserver(ParkingLotObserver observer) {
-        observers.add(observer);
+        System.out.println("Occupancy: " +ParkingAttendant.slots.size()+ "/" + CAPACITY);
     }
 
     /*
@@ -91,12 +81,14 @@ public class ParkingLot {
      *
      * @return: none
      */
-    public void notifyObservers() {
+    public String notifyObservers() {
         if (isFull()) {
             System.out.println("Parking lot is full! Notifying security personnel.");
+            return ("Parking lot is full! Notifying security personnel.");
         }
         else {
             System.out.println("Space is available again! Notifying the parking lot owner.");
+            return ("Space is available again! Notifying the parking lot owner.");
         }
     }
 
