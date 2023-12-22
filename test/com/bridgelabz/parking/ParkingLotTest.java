@@ -16,7 +16,7 @@ class ParkingLotTest {
 	@BeforeEach
 	void setUp() {
 		parkingLot = new ParkingLot();
-		car=new Car("UP 32 4500","White");		
+		car=new Car("UP 32 4500","15:00");		
 	}
 
 	/*
@@ -113,5 +113,19 @@ class ParkingLotTest {
 		parkingLot.parkCar(car);
 		int slot=2;
 		assertEquals(slot,ParkingAttendant.findMyCar(car),0);
+	}
+	
+	/*
+	 * @desc:to test the arrival time functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void  checkIfOwnerCanGetArivalTime(Vehicle car) {
+		String time="15:00";
+		String check=parkingLot.getTimeByOwner(car);
+		assertTrue(time.equals(check));
 	}
 }

@@ -108,4 +108,15 @@ public class ParkingLot {
         }
     }
 
+    /*
+   	 * @desc:help owner to get the time on which the vehicle arrives
+   	 * 
+   	 * @params:none
+   	 * 
+   	 * @return:none
+   	 */
+	public String getTimeByOwner(Vehicle car) {
+		return (car.gettime());
+	}
+
 }

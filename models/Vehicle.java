@@ -7,7 +7,7 @@ public abstract class Vehicle
       protected ArrayList<ParkingLot> ParkingLots =
                            new ArrayList<ParkingLot>();
       public String licensePlate;
-      protected String color;
+      protected String time;
       protected VehicleSize size;
       /*
   	 * @desc:Constructor for the parent class Vehicle
@@ -16,9 +16,9 @@ public abstract class Vehicle
   	 * 
   	 * @return:none
   	 */
-      Vehicle(String license,String color,VehicleSize size){
+      Vehicle(String license,String time,VehicleSize size){
     	  this.licensePlate=license;
-    	  this.color=color;
+    	  this.time=time;
     	  this.size=size;
       }
  
@@ -45,27 +45,27 @@ public abstract class Vehicle
       }
 
       /*
-  	 * @desc:get color of the car
+  	 * @desc:get time of the car
   	 * 
   	 * @params:none
   	 * 
-  	 * @return:color
+  	 * @return:time
   	 */
 
-      public String getColor() {
-          return color;
+      public String gettime() {
+          return time;
       }
 
       /*
-  	 * @desc:set color
+  	 * @desc:set time
   	 * 
-  	 * @params:color
+  	 * @params:time
   	 * 
   	 * @return:none
   	 */
 
-      public void setColor(String color) {
-          this.color = color;
+      public void settime(String time) {
+          this.time = time;
       }
 
       
@@ -95,7 +95,7 @@ public abstract class Vehicle
       public String toString() {
           return "Vehicle{" +
                   "licensePlate='" + licensePlate + '\'' +
-                  ", color='" + color + '\'' +
+                  ", time='" + time + '\'' +
                   ", size=" + size +
                   '}';
       }

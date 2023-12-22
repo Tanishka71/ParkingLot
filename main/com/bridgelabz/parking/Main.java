@@ -15,12 +15,12 @@ public class Main {
 	public static void main(String []args) {
 		System.out.println("<-------------Welcome to parking lot----------------->");
 		ParkingLot parkingLot = new ParkingLot();
-		Vehicle car1=new Car("UP 32 4500","White");
-		Vehicle car2=new Car("UP 33 7600","Black");
-		Vehicle car3=new Car("UP 34 1200","Black");
-		Vehicle car4=new Car("UP 35 8800","Black");
-		Vehicle car5=new Car("UP 36 9900","Black");
-		Vehicle car6=new Car("UP 37 1000","Black");
+		Vehicle car1=new Car("UP 32 4500","12:00");
+		Vehicle car2=new Car("UP 33 7600","9:00");
+		Vehicle car3=new Car("UP 34 1200","12:00");
+		Vehicle car4=new Car("UP 35 8800","10:00");
+		Vehicle car5=new Car("UP 36 9900","11:00");
+		Vehicle car6=new Car("UP 37 1000","12:30");
 
 		//<-------------USE CASE 1------------->
 
@@ -54,5 +54,9 @@ public class Main {
 		
 		//<-----------USE CASE 7--------------->
 		parkingLot.driverFindCar(car3);
+		
+		//<-----------USE CASE 8--------------->
+		String timeOfArrival=parkingLot.getTimeByOwner(car3);
+		System.out.println(car3.licensePlate+ " arrived at "+ timeOfArrival);
 	}
 }
