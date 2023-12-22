@@ -33,4 +33,53 @@ class ParkingLotTest {
 	}
 
 	
+	/*
+	 * @desc:to test unpark car functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void unparkCarTest() {
+		parkingLot.unparkCar(car);
+		assertEquals(parkingLot.parkedCars.size(),0,0);
+	}
+	
+	/*
+	 * @desc:to test isFull functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void ownerCheckWhenParkingIsFull() {
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		boolean check=parkingLot.isFull();
+		assertEquals(check,true);
+	}
+
+	/*
+	 * @desc:to test notify securty personnel functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void notifySecurityPersonnelThatParkingIsFull() {
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		parkingLot.parkCar(car);
+		String check="Parking lot is full! Notifying security personnel.";
+		assertEquals(check,parkingLot.notifyObservers());
+	}
 }
+
