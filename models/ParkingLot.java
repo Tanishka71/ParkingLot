@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
+<<<<<<< Updated upstream
     private static final int CAPACITY = 4;
     private List<Vehicle> parkedCars;
+=======
+    private static final int CAPACITY = 100;
+    public List<Vehicle> parkedCars;
+>>>>>>> Stashed changes
     
     /*
 	 * @desc:constructor for the class ParkingLot
@@ -70,6 +75,24 @@ public class ParkingLot {
 	 */
     public void printOccupancy() {
         System.out.println("Occupancy: " + parkedCars.size() + "/" + CAPACITY);
+    }
+    
+    /*
+     * @desc: notify all observers when the parking lot is full
+     *
+     * @params: none
+     *
+     * @return: none
+     */
+    public String notifyObservers() {
+        if (isFull()) {
+            System.out.println("Parking lot is full! Notifying security personnel.");
+            return ("Parking lot is full! Notifying security personnel.");
+        }
+        else {
+            System.out.println("Space is available again! Notifying the parking lot owner.");
+            return ("Space is available again! Notifying the parking lot owner.");
+        }
     }
 
 }
