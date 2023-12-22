@@ -6,8 +6,11 @@ import java.util.List;
 
 public class ParkingLot {
     static final int CAPACITY = 10;
+
+    
     public List<Vehicle> parkedCars;
-    static int numberOfVehicle=0;
+    static int numberOfCar=0;
+    static int numberOfBike=7;
     
     /*
 	 * @desc:constructor for the class ParkingLot
@@ -38,11 +41,16 @@ public class ParkingLot {
    	 * 
    	 * @return:none
    	 */
-    public void parkCar(Vehicle car) {
+    public void parkVehicle(Vehicle car) {
         if (!isFull()) {
-            numberOfVehicle++;
-            ParkingAttendant.allotSlotToTheCar(car,numberOfVehicle);
-
+        	if(car.getSize() == VehicleSize.Car) {
+        		 numberOfCar++;
+                 ParkingAttendant.allotSlotToTheCar(car,numberOfCar);  		
+        	} 
+        	else {
+        		 numberOfBike++;
+                 ParkingAttendant.allotSlotToTheCar(car,numberOfBike);    		
+        	}
         } else {
             System.out.println("Parking lot is full. Cannot park car.");
         }
@@ -56,9 +64,14 @@ public class ParkingLot {
    	 * 
    	 * @return:none
    	 */
-    public void unparkCar(Vehicle car) {
+    public void unparkVehicle(Vehicle car) {
         if (ParkingAttendant.slots.size() != 0) {
-            ParkingAttendant.emptySlotForTheCar(car);
+        	if(car.getSize() == VehicleSize.Car) {
+                ParkingAttendant.emptySlotForTheCar(car);  		
+       	} 
+       	else {
+                ParkingAttendant.emptySlotForTheCar(car);    		
+       	}
         } else {
             System.out.println("Car not found in the parking lot.");
         }
