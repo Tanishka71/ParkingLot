@@ -51,5 +51,8 @@ public class Main {
 		
 		//<-----------USE CASE 6--------------->
 		parkingLot.parkCar(car6);
+		
+		//<-----------USE CASE 7--------------->
+		parkingLot.driverFindCar(car3);
 	}
 }

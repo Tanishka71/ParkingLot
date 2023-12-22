@@ -30,4 +30,14 @@ public class ParkingAttendant {
         System.out.println("UNparked at slot: A" + slots.get(car.licensePlate) + " " + car);
         slots.remove(car.licensePlate);
     }
+    
+    /**
+     * @desc: finds the slot of the car
+     * @params: car - the Vehicle object to be unparked, numberOfVehicle - the slot number to empty
+     * @return: void
+     */
+    public static int findMyCar(Vehicle car) {
+        System.out.println("Your vehicle is at slot : A" + slots.get(car.licensePlate));
+        return slots.get(car.licensePlate);
+    }
 }

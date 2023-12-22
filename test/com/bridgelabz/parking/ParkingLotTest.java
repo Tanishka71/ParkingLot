@@ -100,4 +100,18 @@ class ParkingLotTest {
 		int slot=1;
 		assertEquals(slot,ParkingAttendant.slots.get(car.licensePlate),0);
 	}
+	
+	/*
+	 * @desc:to test finding the car by the driver  functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void findVehicleByDriver() {
+		parkingLot.parkCar(car);
+		int slot=2;
+		assertEquals(slot,ParkingAttendant.findMyCar(car),0);
+	}
 }

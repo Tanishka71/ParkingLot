@@ -91,5 +91,21 @@ public class ParkingLot {
             return ("Space is available again! Notifying the parking lot owner.");
         }
     }
+    
+    /*
+	 * @desc:help driver to find the car
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+    public void driverFindCar(Vehicle car) {
+        if(ParkingAttendant.findMyCar(car)!= 0) {
+    
+        }
+        else {
+        	System.out.println("Your car is not parked here SORRY!!");
+        }
+    }
 
 }
