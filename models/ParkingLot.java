@@ -1,10 +1,11 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ParkingLot {
-    static final int CAPACITY = 1;
+    static final int CAPACITY = 10;
     public List<Vehicle> parkedCars;
     static int numberOfVehicle=0;
     
@@ -57,7 +58,7 @@ public class ParkingLot {
    	 */
     public void unparkCar(Vehicle car) {
         if (ParkingAttendant.slots.size() != 0) {
-            ParkingAttendant.emptySlotForTheCar(car,numberOfVehicle);
+            ParkingAttendant.emptySlotForTheCar(car);
         } else {
             System.out.println("Car not found in the parking lot.");
         }
@@ -118,5 +119,21 @@ public class ParkingLot {
 	public String getTimeByOwner(Vehicle car) {
 		return (car.gettime());
 	}
+	
+    /*
+   	 * @desc:help parking for handicap to the nearest slot
+   	 * 
+   	 * @params:none
+   	 * 
+   	 * @return:none
+   	 */
+	public int parkCarForHandicap(Vehicle car) {
+		Collections.sort(ParkingAttendant.emptySpace);
+		int nearestEmptySpot=ParkingAttendant.emptySpace.get(0);
+		ParkingAttendant.allotSlotToTheCar(car, nearestEmptySpot);
+		ParkingAttendant.emptySpace.remove(nearestEmptySpot);
+		return nearestEmptySpot;
+	}
+
 
 }

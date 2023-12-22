@@ -128,4 +128,21 @@ class ParkingLotTest {
 		String check=parkingLot.getTimeByOwner(car);
 		assertTrue(time.equals(check));
 	}
+	
+	/*
+	 * @desc:to test the handicap funcitonality functionality
+	 * 
+	 * @params:none
+	 * 
+	 * @return:none
+	 */
+	@Test
+	void  checkIfHandicapCarCanBeParked(Vehicle car) {
+		int slot=1;
+		parkingLot.parkCar(car);
+		parkingLot.unparkCar(car);
+		int check=parkingLot.parkCarForHandicap(car);
+		assertEquals(slot,check,0);
+	}
 }
+

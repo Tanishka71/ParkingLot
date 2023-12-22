@@ -1,6 +1,8 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ParkingAttendant {
@@ -10,6 +12,7 @@ public class ParkingAttendant {
 
     // Static map to keep track of parked vehicles and their corresponding slots
     public static Map<Object, Integer> slots = new HashMap<>();
+    static List<Integer> emptySpace=new ArrayList<>();
 
     /**
      * @desc: Allots a parking slot to the specified vehicle and prints the slot information.
@@ -26,8 +29,9 @@ public class ParkingAttendant {
      * @params: car - the Vehicle object to be unparked, numberOfVehicle - the slot number to empty
      * @return: void
      */
-    static void emptySlotForTheCar(Vehicle car, int numberOfVehicle) {
+    static void emptySlotForTheCar(Vehicle car) {
         System.out.println("UNparked at slot: A" + slots.get(car.licensePlate) + " " + car);
+        emptySpace.add(slots.get(car.licensePlate));
         slots.remove(car.licensePlate);
     }
     
