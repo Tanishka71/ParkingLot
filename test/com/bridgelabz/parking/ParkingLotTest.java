@@ -2,7 +2,6 @@ package test.com.bridgelabz.parking;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +31,7 @@ class ParkingLotTest {
 		parkingLot.parkCar(car);
 		assertEquals(parkingLot.parkedCars.size(),1,0);
 	}
+
 	
 	/*
 	 * @desc:to test unpark car functionality
@@ -82,3 +82,4 @@ class ParkingLotTest {
 		assertEquals(check,parkingLot.notifyObservers());
 	}
 }
+
